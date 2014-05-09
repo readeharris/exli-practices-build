@@ -158,6 +158,8 @@ practices.controller('RemindersController', function($scope, $location, $window,
       });
     } else if ('error' === e.event) {
       alert('Failed to register device.');
+    } else {
+      alert('Unhandled event: ' + e.event);
     }
   }
 
