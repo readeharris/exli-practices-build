@@ -102,6 +102,7 @@ practices.controller('RemindersController', function($scope, $location, $window,
   $scope.initializePush = function() {
     var pushNotification = $window.plugins.pushNotification;
 
+    // Handle registrations on iOS.
     var iosHandler = function(result) {
       UserApp.User.save({
         "user_id": $scope.currentUser.user_id,
@@ -112,21 +113,15 @@ practices.controller('RemindersController', function($scope, $location, $window,
       });
     }
 
+    // Handle registrations on Android (basic success).
     var androidHandler = function(result) {
-      UserApp.User.save({
-        "user_id": $scope.currentUser.user_id,
-        "properties": {
-          "device_type": "android",
-          "device_id": result
-        }
-      });
     }
 
     var errorHandler = function(error) {
       alert('There was an error setting up Push Notifications: ' + error);
     }
 
-    if (!!$scope.device_type.match(/Android/g)) {
+    if (!!$scope.device_type.match(/Android/ig)) {
       pushNotification.register(
         androidHandler,
         errorHandler, {
@@ -144,6 +139,25 @@ practices.controller('RemindersController', function($scope, $location, $window,
           "ecb": "onNotificationAPN"
         }
       );
+    }
+  }
+
+  // Handle notifications and registration completion on Android.
+  //
+  // Needs to be defined on window because it is called from a 
+  // callback.
+  //
+  $window.onNotificationGCM = function(e) {
+    if ('registered' === e.event) {
+      UserApp.User.save({
+        "user_id": $scope.currentUser.user_id,
+        "properties": {
+          "device_type": "android",
+          "device_id": e.regid
+        }
+      });
+    } else if ('error' === e.event) {
+      alert('Failed to register device.');
     }
   }
 
