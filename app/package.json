@@ -1,0 +1,12 @@
+{
+  "name": "exli-practices",
+  "version": "0.0.1",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-coffee": "*",
+    "gulp-concat": "*",
+    "gulp-filter": "*",
+    "gulp-ruby-sass": "*",
+    "gulp-jade": "*"
+  }
+}

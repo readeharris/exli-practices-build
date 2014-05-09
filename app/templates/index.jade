@@ -1,0 +1,35 @@
+doctype html
+
+html
+  head
+    title Search Inside Yourself
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+    link(rel='stylesheet', type='text/css', href='css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='css/app.css')
+
+    // Mixpanel
+    script(src='js/vendor/mixpanel.js')
+
+    // AngularJS
+    script(src='js/vendor/jquery.min.js')
+    script(src='js/vendor/angular.min.js')
+    script(src='js/vendor/angular-route.min.js')
+
+    // UserApp
+    script(src='js/vendor/userapp.client.js')
+    script(src='js/vendor/angularjs.userapp.js')
+
+    // PhoneGap
+    script(src='cordova.js')
+    script(src='PushNotification.js')
+
+    // Utilities
+    script(src='js/vendor/fastclick.js')
+
+    // Application Code
+    script(src='js/all.js')
+
+  body(ng-controller='ApplicationController')
+    header
+    #content(ng-view='')

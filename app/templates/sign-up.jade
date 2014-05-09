@@ -1,0 +1,15 @@
+h1 Welcome!
+h2 We're happy to have you on board.
+
+form(ua-signup='')
+  input(name='login' placeholder='Email' ua-is-email='')
+  input(name='password' placeholder='Password' type='password')
+  button(type='submit') Sign Up
+
+p(ng-show='loading')
+  img(src='images/loader.gif')
+
+p(ng-show='error') {{ error.message }}
+
+p.user-switch
+  | or <a ng-click='redirectToSignIn()'>sign in</a>

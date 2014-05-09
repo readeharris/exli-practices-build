@@ -1,0 +1,15 @@
+h1 Welcome!
+h2 You've taken your first step on the unexpected path to success, happiness (and world peace).
+
+form(ua-login='')
+  input(name='login' placeholder='Email' ua-is-email='')
+  input(name='password' placeholder='Password' type='password')
+  button(type='submit') Sign In
+
+p(ng-show='loading')
+  img(src='images/loader.gif')
+
+p(ng-show='error') {{ error.message }}
+
+p.user-switch
+  | or <a ng-click='redirectToSignUp()'>sign up</a>

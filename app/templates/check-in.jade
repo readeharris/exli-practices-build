@@ -1,0 +1,29 @@
+#check-in
+  #prepare(ng-show='preparing')
+    h2 How does my {{ currentStep }} feel?
+    a.button(ng-click='express()') Continue
+
+  #express(ng-show='expressing')
+    h2 My {{ currentStep }} feels...
+
+    #express-options(class="{{ currentStep }}")
+      #scale.options(ng-show='checkInType == "scale"')
+        #great.option(ng-click='evaluate("great")') Great
+        #good.option(ng-click='evaluate("good")') Good
+        #okay.option(ng-click='evaluate("okay")') Okay
+        #poor.option(ng-click='evaluate("poor")') Poor
+        #bad.option(ng-click='evaluate("bad")') Bad
+
+      #color.options(ng-show='checkInType == "color"')
+        #peaceful.emotion(ng-click='evaluate("peaceful")') Peaceful
+        #scared.emotion(ng-click='evaluate("scared")') Scared
+        #powerful.emotion(ng-click='evaluate("powerful")') Powerful
+        #agitated.emotion(ng-click='evaluate("agitated")') Agitated
+        #joyful.emotion(ng-click='evaluate("joyful")') Joyful
+        #sad.emotion(ng-click='evaluate("sad")') Sad
+
+      #word.options(ng-show='checkInType == "word"')
+        h3 Enter one or two words to describe how your {{ currentStep }} feels.
+        p Tip: Say it out loud first.
+        input#expression(ng-model='expression' type='text' x-webkit-speech='x-webkit-speech')
+        a.button(ng-click='evaluate()') Continue
