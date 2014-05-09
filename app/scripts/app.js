@@ -1,4 +1,4 @@
-var practices = angular.module('practices', ['ngRoute', 'UserApp']);
+var practices = angular.module('practices', ['ngRoute', 'UserApp', 'uiSlider']);
 
 // Initialize UserApp
 

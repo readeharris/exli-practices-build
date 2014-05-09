@@ -15,12 +15,8 @@
         #bad.option(ng-click='evaluate("bad")') Bad
 
       #color.options(ng-show='checkInType == "color"')
-        #peaceful.emotion(ng-click='evaluate("peaceful")') Peaceful
-        #scared.emotion(ng-click='evaluate("scared")') Scared
-        #powerful.emotion(ng-click='evaluate("powerful")') Powerful
-        #agitated.emotion(ng-click='evaluate("agitated")') Agitated
-        #joyful.emotion(ng-click='evaluate("joyful")') Joyful
-        #sad.emotion(ng-click='evaluate("sad")') Sad
+        slider(floor='0' ceiling='360' step='1' ng-model='hue.value')
+        a.button(ng-click='evaluate(hue.value)')) Continue
 
       #word.options(ng-show='checkInType == "word"')
         h3 Enter one or two words to describe how your {{ currentStep }} feels.

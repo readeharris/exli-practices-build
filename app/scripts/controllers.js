@@ -170,6 +170,11 @@ practices.controller('CheckInController', function($scope, $location, $routePara
   $scope.steps       = ['mind', 'body', 'heart'];
   $scope.stepIndex   = 0;
   $scope.currentStep = $scope.steps[$scope.stepIndex];
+  $scope.hue         = { value: 180 };
+
+  $scope.$watch('hue.value', function(value) {
+    angular.element('body').css('background-color', 'hsl(' + value + ', 85%, 70%');
+  });
 
   // -------------------------------------------------------
   // Functions

@@ -339,6 +339,7 @@ table {
   border-spacing: 0; }
 
 body {
+  background-color: white;
   color: #333333;
   font-size: 16px;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, sans-serif; }
@@ -469,29 +470,8 @@ input {
 #express-options .options {
   margin: 0 auto; }
 
-.emotion {
-  color: white;
-  width: 100%;
-  padding: 1em 0;
-  font-size: 1.25em; }
-
-#agitated {
-  background-color: #d92626; }
-
-#peaceful {
-  background-color: #3333cc; }
-
-#scared {
-  background-color: black; }
-
-#powerful {
-  background-color: #136d13; }
-
-#joyful {
-  background-color: #cccc33; }
-
-#sad {
-  background-color: gray; }
+#color slider {
+  text-align: left; }
 
 #express-options #word {
   max-width: 480px; }

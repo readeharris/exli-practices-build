@@ -1,4 +1,4 @@
-var practices = angular.module('practices', ['ngRoute', 'UserApp']);
+var practices = angular.module('practices', ['ngRoute', 'UserApp', 'uiSlider']);
 
 // Initialize UserApp
 
@@ -225,6 +225,11 @@ practices.controller('CheckInController', function($scope, $location, $routePara
   $scope.steps       = ['mind', 'body', 'heart'];
   $scope.stepIndex   = 0;
   $scope.currentStep = $scope.steps[$scope.stepIndex];
+  $scope.hue         = { value: 180 };
+
+  $scope.$watch('hue.value', function(value) {
+    angular.element('body').css('background-color', 'hsl(' + value + ', 85%, 70%');
+  });
 
   // -------------------------------------------------------
   // Functions
